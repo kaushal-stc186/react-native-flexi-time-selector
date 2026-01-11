@@ -1,6 +1,6 @@
 {
   "name": "react-native-flexi-time-selector",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.ts",
   "types": "index.ts",
   "description": "Flexible time picker for React Native apps",
