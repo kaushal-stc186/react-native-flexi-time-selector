@@ -1,26 +1,30 @@
+import { StyleSheet } from "react-native";
 import { ScaledSheet } from "react-native-size-matters";
 import { CONTAINER_WIDTH, HALF_PICKER_HEIGHT, ITEM_HEIGHT_SCALED, PICKER_HEIGHT } from "./constants";
 
 export const styles = ScaledSheet.create({
+  modalWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   modal: {
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 0,
   },
   container: {
     width: CONTAINER_WIDTH,
     borderRadius: '16@s',
-    padding: '20@s',
-    gap: '12@s',
-    borderWidth: 1, 
-    maxHeight: '90%' 
+    padding: '16@s',
+    gap: '10@s',
+    borderWidth: 1,
   },
   
   header: {
     flexDirection: 'column',
-    paddingBottom: '12@s',
+    paddingBottom: '10@s',
     borderBottomWidth: 1,
-    gap: '8@s',
+    gap: '6@s',
   },
   headerTopRow: {
     flexDirection: 'row',
@@ -28,9 +32,21 @@ export const styles = ScaledSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  headerTopRowRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '8@s',
+  },
   headerBottomRow: {
     alignItems: 'flex-start',
     gap: '4@s',
+  },
+  timeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '12@s',
+    flexWrap: 'nowrap',
+    width: '100%',
   },
   headerTitle: {
     fontSize: '11@s',
@@ -43,6 +59,8 @@ export const styles = ScaledSheet.create({
     fontWeight: '800',
     letterSpacing: -0.5,
     lineHeight: '40@s',
+    includeFontPadding: false,
+    textAlignVertical: 'center',
   },
   
   feedbackContainer: {
@@ -71,12 +89,12 @@ export const styles = ScaledSheet.create({
 
   // PRESETS STYLE
   presetsWrapper: {
-    paddingBottom: '10@s',
+    paddingBottom: '8@s',
     borderBottomWidth: 1,
   },
   presetsScrollContent: {
     gap: '8@s',
-    paddingRight: '12@s'
+    paddingHorizontal: '12@s',
   },
   presetColumn: {
     flexDirection: 'column',
@@ -98,19 +116,35 @@ export const styles = ScaledSheet.create({
 
   // Picker Body
   pickerBody: {
+    paddingTop: '10@s',
+    paddingBottom: '10@s',
+    gap: '4@s',
+  },
+  
+  columnHeaders: {
     flexDirection: 'row',
-    height: PICKER_HEIGHT,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: '20@s', 
+    paddingBottom: '8@s',
+  },
+  columnHeaderItem: {
+    width: '64@s',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  columnHeaderSpacer: {
+    width: '20@s',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   
   wheelsWrapper: {
     flexDirection: 'row',
-    height: '100%',
+    height: PICKER_HEIGHT,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
+    flexWrap: 'nowrap',
   },
 
   highlightPill: {
@@ -125,17 +159,17 @@ export const styles = ScaledSheet.create({
     width: '64@s',
     height: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
     zIndex: 10,
+    flexShrink: 0,
   },
   columnLabel: {
-    position: 'absolute',
-    top: -30, 
-    fontSize: '10@s',
+    fontSize: '11@s',
     fontWeight: '600',
     letterSpacing: 0.5,
     includeFontPadding: false,
-    width: '100%',
     textAlign: 'center',
+    textTransform: 'uppercase',
   },
   
   itemContainer: {
@@ -162,11 +196,10 @@ export const styles = ScaledSheet.create({
   separatorContainer: {
     height: '100%',
     justifyContent: 'center',
-    paddingBottom: '4@s',
-    paddingTop: '6@s', 
     width: '20@s',
     alignItems: 'center',
     zIndex: 10,
+    flexShrink: 0,
   },
   separator: {
     fontSize: '24@s',
@@ -176,31 +209,33 @@ export const styles = ScaledSheet.create({
     lineHeight: '28@s',
   },
 
-  // AM/PM Toggle
-  amPmContainer: {
-    marginLeft: '16@s',
-    height: ITEM_HEIGHT_SCALED * 2,
-    width: '36@s',
-    borderRadius: '12@s',
+  // AM/PM Toggle (Horizontal - in header top row)
+  amPmContainerHorizontal: {
+    flexDirection: 'row',
+    borderRadius: '8@s',
     borderWidth: 1,
     justifyContent: 'space-between',
     padding: '2@s',
     zIndex: 10,
-  },
-  amPmButton: {
-    flex: 1,
-    borderRadius: '10@s',
-    justifyContent: 'center',
+    flexShrink: 0,
     alignItems: 'center',
   },
-  amPmButtonActive: {}, 
-  amPmDivider: {
-    height: 1,
-    width: '60%',
+  amPmButtonHorizontal: {
+    paddingHorizontal: '10@s',
+    paddingVertical: '4@s',
+    borderRadius: '6@s',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: '36@s',
+  },
+  amPmButtonActiveHorizontal: {}, 
+  amPmDividerHorizontal: {
+    width: 1,
+    height: '16@s',
     alignSelf: 'center',
     opacity: 0.5,
   },
-  amPmText: {
+  amPmTextHorizontal: {
     fontSize: '11@s',
     fontWeight: '800',
     includeFontPadding: false,
@@ -208,7 +243,7 @@ export const styles = ScaledSheet.create({
 
   // Footer
   footer: {
-    paddingTop: '12@s',
+    paddingTop: '10@s',
     flexDirection: 'row',
     gap: '12@s',
   },

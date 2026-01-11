@@ -17,10 +17,8 @@
     "url": "https://github.com/kaushal-stc186/react-native-flexi-time-selector"
   },
   "peerDependencies": {
-    "react-native": ">=0.70.0"
-  },
-  "dependencies": {
-    "react-native-modal": "13.0.1",
+    "react-native": ">=0.70.0",
+    "react-native-reanimated": ">=3.0.0",
     "react-native-size-matters": "^0.4.2"
   },
   "devDependencies": {

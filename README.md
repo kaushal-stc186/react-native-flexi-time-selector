@@ -23,6 +23,18 @@ or
 yarn add react-native-flexi-time-selector
 ```
 
+### Peer Dependencies
+
+This package requires the following peer dependencies:
+
+```bash
+npm install react-native-reanimated react-native-size-matters
+# or
+yarn add react-native-reanimated react-native-size-matters
+```
+
+**Note:** Make sure to follow the [react-native-reanimated setup instructions](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/) for your platform.
+
 ---
 
 ## 📦 Usage Examples
@@ -208,13 +220,50 @@ minTime={{
 
 ## 🏆 Features At a Glance
 
-- **12/24h Support:** Switchable on the fly.
+- **12/24h Support:** Switchable on the fly with AM/PM buttons in header.
 - **Minute Intervals:** 1, 5, 10, 15, 30, or 60-minute steps.
 - **Min/Max Range:** Enforce allowed time slots.
 - **Dynamic "Now" Min:** Set earliest selectable time to "now + N min."
 - **Pre-selection:** Start with any time pre-selected.
 - **Accessible & Responsive:** Touch friendly, works on all React Native platforms.
 - **Fully Customizable:** Theming and style overrides for perfect UI integration.
+- **Modern Animations:** Uses `react-native-reanimated` for smooth, performant animations.
+- **React Native Modal:** Built on React Native's native Modal component (no external modal dependencies).
+- **Optimized Performance:** Uses FlatList for efficient rendering of time options.
+
+---
+
+## 🧩 File Overview & Architecture
+
+### Package Structure
+
+```
+react-native-flexi-time-selector/
+├── src/
+│   └── TimePicker/              # Main time picker component
+│       ├── TimePicker.tsx       # Component implementation
+│       ├── useTimePicker.ts     # Main hook for component logic
+│       ├── useTimePickerAnimations.ts # Animation hook
+│       ├── styles.ts            # Component styles
+│       ├── constants.ts         # Component constants and themes
+│       ├── helpers.ts           # Helper functions
+│       ├── types.ts             # TypeScript interfaces
+│       └── index.ts             # Component export
+├── index.ts                     # Main package export
+└── package.json
+```
+
+### Architecture Notes
+
+- **Component Structure:** Follows React Native engineering rules with separated concerns (component, hooks, styles, constants, helpers).
+- **Hooks:** Custom hooks extracted for reusable logic:
+  - `useTimePicker` - Main hook handling state, data generation, handlers, and validity checking
+  - `useTimePickerAnimations` - Animation logic using react-native-reanimated
+- **Animations:** Uses `react-native-reanimated` for UI thread animations (no JS thread dependency).
+- **Modal:** Built on React Native's native `Modal` component for better performance and compatibility.
+- **Layout:** Follows React Native layout rules (gap for spacing, parents own layout, no margin usage).
+- **Touch Handling:** Uses `Pressable` for all interactive elements (following React Native rules).
+- **Lists:** Uses `FlatList` for efficient rendering of hour and minute options.
 
 ---
 
@@ -235,6 +284,7 @@ PRs and suggestions are welcome! Please open issues for bugs or feature requests
 - All times are **"HH:MM"** (24-hour strings) for configuration and callbacks.
 - 12/24-hour display is for UI only.
 - Highly flexible, super easy to integrate.
+- Built following React Native engineering best practices.
 
 ---
 

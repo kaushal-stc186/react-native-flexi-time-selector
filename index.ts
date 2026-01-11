@@ -1,8 +1,7 @@
-import TimePicker from "./src/TimePicker/TimePicker";
+import TimePicker from "./src/TimePicker";
 
 export { TimePicker };
 export default TimePicker;
-
 
 export type {
   TimePickerProps,
